@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Players from "./components/Players";
 import Problems from "./components/Problems";
 import Solutions from "./components/Solutions";
+import LightsOut from "./components/LightsOut";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Nav.Link as={Link} to="/players">Players</Nav.Link>
             <Nav.Link as={Link} to="/problems">Problems</Nav.Link>
             <Nav.Link as={Link} to="/solutions">Solutions</Nav.Link>
+            <Nav.Link as={Link} to="/lightsout">LightsOut</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -22,6 +24,7 @@ function App() {
           <Route path="/players" element={<Players />} />
           <Route path="/problems" element={<Problems />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/lightsout" element={<LightsOut />} />
         </Routes>
       </Container>
     </Router>
