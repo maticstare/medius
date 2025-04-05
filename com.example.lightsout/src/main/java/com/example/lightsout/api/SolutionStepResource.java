@@ -6,6 +6,7 @@ import com.example.lightsout.model.SolutionStep;
 import com.example.lightsout.repository.SolutionStepRepository;
 
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -35,6 +36,7 @@ public class SolutionStepResource {
     }
 
     @POST
+    @Transactional
     public Response createSolutionStep(SolutionStep solutionStep) {
         solutionStepRepository.persist(solutionStep);
         return Response.status(Response.Status.CREATED).entity(solutionStep).build();

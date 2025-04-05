@@ -116,20 +116,23 @@ public class Solver {
         }
         return sb.toString();
         
-     }
+    }
+
+    public int[] getSolution() {
+        return this.solution;
+    }
+    
 
 
 
 
 
-    public static void main(String[] args) {
+    /* public static void main(String[] args) {
         // Solvable example
         String board = "101010101";
-        /* 
-        1 0 1
-        0 1 0
-        1 0 1
-        */
+        //1 0 1
+        //0 1 0
+        //1 0 1
         Solver solver = new Solver(board);
         System.out.println("Solving board: \n" + solver.toString());
         boolean result = solver.solve();
@@ -140,18 +143,16 @@ public class Solver {
 
         // Unsolvable example
         board = "1100110000110011";
-        /*
-        1 1 0 0
-        1 1 0 0
-        0 0 1 1
-        0 0 1 1
-        */
+        //1 1 0 0
+        //1 1 0 0
+        //0 0 1 1
+        //0 0 1 1
         solver = new Solver(board);
         System.out.println("Solving board: \n" + solver.toString());
         result = solver.solve();
         System.out.println("Solution found: " + result);
         
-    }
+    } */
 }
 
 

@@ -1,34 +1,26 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Players from "./components/Players";
-import Problems from "./components/Problems";
-import Solutions from "./components/Solutions";
-import LightsOut from "./components/LightsOut";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage';
+import CreateProblemPage from './pages/CreateProblemPage';
+import SolveProblemPage from './pages/SolveProblemPage';
 
-function App() {
+const App = () => {
+  const username = localStorage.getItem('username');
+
   return (
     <Router>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand>Lights Out</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/players">Players</Nav.Link>
-            <Nav.Link as={Link} to="/problems">Problems</Nav.Link>
-            <Nav.Link as={Link} to="/solutions">Solutions</Nav.Link>
-            <Nav.Link as={Link} to="/lightsout">LightsOut</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-      <Container className="mt-4">
-        <Routes>
-          <Route path="/players" element={<Players />} />
-          <Route path="/problems" element={<Problems />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/lightsout" element={<LightsOut />} />
-        </Routes>
-      </Container>
+      <Routes>
+        <Route path="/" element={username ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/home" element={username ? <HomePage /> : <Navigate to="/login" />} />
+        <Route path="/create" element={<CreateProblemPage />} />
+        <Route path="/solve" element={<SolveProblemPage />} />
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;

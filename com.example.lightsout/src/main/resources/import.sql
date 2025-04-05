@@ -7,16 +7,16 @@
 
 
 -- Insert test players
-INSERT INTO player (username, age) VALUES ('Alice', 25);
-INSERT INTO player (username, age) VALUES ('Bob', 30);
+INSERT INTO player (username, age, password) VALUES ('Alice', 25, '123');
+INSERT INTO player (username, age, password) VALUES ('Bob', 30, '123');
+INSERT INTO player (username, age, password) VALUES ('1', 1, '1');
 
 -- Insert test problems
-INSERT INTO problem (description, created_by) VALUES ('1010101010', 1);
-INSERT INTO problem (description, created_by) VALUES ('1110001110', 2);
+INSERT INTO problem (description, created_by) VALUES ('101010110', 1);
+INSERT INTO problem (description, created_by) VALUES ('110001110', 2);
 
 -- Insert test solutions
-INSERT INTO solution (problem_id, player_id) VALUES (1, 2);
-INSERT INTO solution (problem_id, player_id) VALUES (2, 1);
+INSERT INTO solution (problem_id, player_id, solution) VALUES (2, 1, '101100101');
 
 -- Insert test solution steps
 INSERT INTO solution_step (solution_id, move_x, move_y, step_order) VALUES (1, 1, 2, 1);
