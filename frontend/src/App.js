@@ -7,13 +7,14 @@ import CreateProblemPage from './pages/CreateProblemPage';
 import SolveProblemPage from './pages/SolveProblemPage';
 
 const App = () => {
-  const username = localStorage.getItem('username');
+  const [username, setUsername] = React.useState(localStorage.getItem('username'));
+
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={username ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage setUsername={setUsername} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={username ? <HomePage /> : <Navigate to="/login" />} />
         <Route path="/create" element={<CreateProblemPage />} />

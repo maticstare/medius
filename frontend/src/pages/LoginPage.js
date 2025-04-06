@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { getPlayer } from '../api/players';
 import { Container, Form, Button, Card } from 'react-bootstrap';
 
-const LoginPage = () => {
+const LoginPage = ({setUsername}) => {
   const [form, setForm] = useState({ username: '', password: '' });
   const navigate = useNavigate();
 
@@ -16,6 +16,7 @@ const LoginPage = () => {
       const res = await getPlayer(form.username);
   
       if (res.data && res.data.password === form.password) {
+        setUsername(res.data.username);
         localStorage.setItem('username', form.username);
         localStorage.setItem('userId', res.data.id);
         navigate('/home');
